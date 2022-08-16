@@ -1,43 +1,29 @@
 package main
 
 import (
+	// "calculator/math/calculate"
 	"calculator/math/precalc"
-	"fmt"
 )
 
-var testInputs = []int{1,2,8,4,5,6,9,8,9,10}
 
-type Inputs struct{
-  testRange []int
-  answer int
-  err bool
-}
+
+var testInputs = []int{16,6,8,4,5,6,9,8,9,10}
+
+var Ops = precalc.Inputs{InputRange: testInputs, Err: false}
 
 func main() {
-  inputs := Inputs{testRange: testInputs}
-  inputs.calculator("add")
-  inputs.calculator("sub")
-  inputs.calculator("mult")
-  inputs.calculator("div")
-  inputs.calculator("sq")
-}
-
-func (I *Inputs) calculator(operation string) {
-  switch operation {
-  case "add":
-    I.answer = precalc.Add(I.testRange)
-   case "sub": 
-   I.answer = precalc.Sub(I.testRange) 
-  case "mult":
-    I.answer = precalc.Mult(I.testRange)
-  case "div":
-    I.answer = precalc.Div(I.testRange)
-  default:
-    I.err = true
-    fmt.Println("Invalid operation")
-  }
   
- if (!I.err) {
-   fmt.Printf("Answer: %d\n", I.answer)
- }
+  Ops.Add(Ops.InputRange)
+  Ops.Sub(Ops.InputRange)
+  Ops.Mult(Ops.InputRange)
+  Ops.Div(Ops.InputRange)
+  Ops.Mod(Ops.InputRange)
+  // Ops.Add(Ops.InputRange)
+  // Ops.Add(Ops.InputRange)
+//   calculate.Ops.Calculator("add")
+//   calculate.Ops.Calculator("sub")
+//   calculate.Ops.Calculator("mult")
+//  calculate.Ops.Calculator("div")
+//   calculate.Ops.Calculator("sq")
+//   calculate.Ops.Calculator("mod")
 }
